@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate RGB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root" class="flex items-center justify-center h-screen ">
+   <p>Click here to change the color.  </p>
+   
+   <input type="text" disabled value = "#000000" id ='output'>
+   <button id="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Click me</button> 
+   </div>
+   <script>
+    window.onload = () =>{
+        main();
+    }
+    function main ()
+    {
+        const root = document.getElementById('root');
+        const btn = document.getElementById('button');
+        const output = document.getElementById('output');
+
+        btn.addEventListener('click', function(){
+            const bgcolor = hexcolor() ;
+            root.style.backgroundColor = bgcolor;
+            output.value = bgcolor;
+        })
+    }
+    function hexcolor(){
+        const red = Math.floor(Math.random()*255)
+        const green = Math.floor(Math.random()*255)
+        const blue = Math.floor(Math.random()*255)
+        return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+    }
+   </script>
+</body>
+</html>
